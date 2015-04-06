@@ -16,6 +16,8 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
+Route::group(['middleware' => 'auth'], function()
+{
     Route::get('/', 'DashboardController@show');
 
     /**
@@ -84,3 +86,4 @@ Route::controllers([
      */
     Route::resource('users', 'UsersController');
 
+});
