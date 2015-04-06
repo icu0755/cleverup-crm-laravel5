@@ -12,12 +12,8 @@
       </head>
     <body id="{{$body or ''}}">
         @include('navbar')
-        <div class="container-fluid">
-            <div class="row">
-                @yield('sidebar')
-                @yield('content')
-            </div>
-        </div>
+        @yield('sidebar')
+        @yield('content')
 
         <script src="{{asset('scripts/vendor.js')}}"></script>
         <script src="{{asset('scripts/plugins.js')}}"></script>
