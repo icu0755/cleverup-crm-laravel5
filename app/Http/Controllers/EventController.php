@@ -79,8 +79,8 @@ class EventController extends Controller
 
     public function events()
     {
-        $start = new Carbon(Input::get('start'));
-        $end   = new Carbon(Input::get('end'));
+        $start = new Carbon(\Input::get('start'));
+        $end   = new Carbon(\Input::get('end'));
 
         return json_encode(Calendar::events($start, $end, EventSchedule::all()));
     }
