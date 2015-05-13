@@ -19,7 +19,8 @@ class CustomerController extends Controller
 
         return view('customer.edit')
             ->with('customer', $customer)
-            ->with('groups', $groups);
+            ->with('groups', $groups)
+            ->withBody('customer-edit');
     }
 
     public function removeCustomer($customerId)

@@ -14,4 +14,12 @@
         {!! Form::label('phone', 'Phone') !!}
         {!! Form::text('phone', null, ['class' => 'form-control']) !!}
     </div>
+    <div class="form-group">
+        {!! Form::label('email', 'Email') !!}
+        {!! Form::text('email', null, ['class' => 'form-control']) !!}
+    </div>
+    <div class="form-group">
+        {!! Form::label('birthday', 'Birthday') !!}
+        {!! Form::text('birthday', null, ['class' => 'form-control datepicker']) !!}
+    </div>
     {!! Form::submit('Save', ['class' => 'btn btn-default']); !!}

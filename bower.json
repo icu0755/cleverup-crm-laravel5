@@ -6,6 +6,7 @@
     "fullcalendar": "~2.2.2",
     "datatables": "~1.10.4",
     "jt.timepicker": "~1.4.13",
-    "datepair.js": "~0.4.4"
+    "datepair.js": "~0.4.4",
+    "bootstrap-datepicker": "~1.4.0"
   }
 }

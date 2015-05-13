@@ -17,8 +17,10 @@
 
         <script src="{{asset('scripts/vendor.js')}}"></script>
         <script src="{{asset('scripts/plugins.js')}}"></script>
+        <script src="{{asset('scripts/modules/config.js')}}"></script>
         <script src="{{asset('scripts/modules/calendar_controller.js')}}"></script>
         <script src="{{asset('scripts/modules/customers_controller.js')}}"></script>
+        <script src="{{asset('scripts/modules/customers_edit_controller.js')}}"></script>
         <script src="{{asset('scripts/modules/customer_groups_controller.js')}}"></script>
         <script src="{{asset('scripts/modules/event_edit_controller.js')}}"></script>
         <script src="{{asset('scripts/modules/events_controller.js')}}"></script>

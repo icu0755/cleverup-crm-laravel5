@@ -15,12 +15,14 @@ elixir(function(mix) {
     //mix.less('app.less');
     mix.styles([
         '../bower/bootstrap/dist/css/bootstrap.css',
+        '../bower/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css',
         '../bower/fullcalendar/dist/fullcalendar.css',
         '../bower/datatables/media/css/jquery.dataTables.css',
         '../bower/jt.timepicker/jquery.timepicker.css',
     ], 'public/styles/vendor.css');
     mix.scripts([
         '../bower/jquery/dist/jquery.js',
+        '../bower/bootstrap-datepicker/dist/js/bootstrap-datepicker.js',
         '../bower/moment/moment.js',
         '../bower/fullcalendar/dist/fullcalendar.js',
         '../bower/datatables/media/js/jquery.dataTables.js',

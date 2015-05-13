@@ -14,6 +14,9 @@ jQuery(function($) {
         case 'customer-groups':
             new CustomerGroupsController();
             break;
+        case 'customer-edit':
+            new CustomersEditController();
+            break;
         case 'event-edit':
             new EventEditController();
             break;
