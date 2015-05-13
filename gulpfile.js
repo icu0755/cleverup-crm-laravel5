@@ -13,6 +13,12 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     //mix.less('app.less');
+    mix.styles([
+        '../bower/bootstrap/dist/css/bootstrap.css',
+        '../bower/fullcalendar/dist/fullcalendar.css',
+        '../bower/datatables/media/css/jquery.dataTables.css',
+        '../bower/jt.timepicker/jquery.timepicker.css',
+    ], 'public/styles/vendor.css');
     mix.scripts([
         '../bower/jquery/dist/jquery.js',
         '../bower/moment/moment.js',
