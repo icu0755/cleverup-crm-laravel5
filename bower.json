@@ -1,0 +1,11 @@
+{
+  "name": "cleverup-crm",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "fullcalendar": "~2.2.2",
+    "datatables": "~1.10.4",
+    "jt.timepicker": "~1.4.13",
+    "datepair.js": "~0.4.4"
+  }
+}
