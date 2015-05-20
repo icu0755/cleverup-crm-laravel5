@@ -13,6 +13,7 @@ class ComposerServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		View::composer('user.index', '\App\Http\ViewComposers\UsersComposer');
+		View::composer('widgets.birthday', '\App\Http\ViewComposers\WidgetBirthdayComposer');
 	}
 
 	/**
