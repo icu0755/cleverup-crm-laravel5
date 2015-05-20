@@ -58,7 +58,8 @@ class CustomerController extends Controller
         $groups = CustomerGroup::lists('groupname', 'id');
 
         return view('customer/create')
-            ->with('groups', $groups);
+            ->with('groups', $groups)
+            ->withBody('customer-edit');
     }
 
     public function saveCustomer($customerId)

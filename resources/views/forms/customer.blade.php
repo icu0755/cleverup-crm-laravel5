@@ -12,14 +12,14 @@
     </div>
     <div class="form-group">
         {!! Form::label('phone', 'Phone') !!}
-        {!! Form::text('phone', null, ['class' => 'form-control']) !!}
+        {!! Form::text('phone', null, ['class' => 'form-control', 'placeholder' => '71234567890']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('email', 'Email') !!}
-        {!! Form::text('email', null, ['class' => 'form-control']) !!}
+        {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'john.doe@example.com']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('birthday', 'Birthday') !!}
-        {!! Form::text('birthday', null, ['class' => 'form-control datepicker']) !!}
+        {!! Form::text('birthday', null, ['class' => 'form-control datepicker', 'placeholder' => '1999-12-31']) !!}
     </div>
     {!! Form::submit('Save', ['class' => 'btn btn-default']); !!}
