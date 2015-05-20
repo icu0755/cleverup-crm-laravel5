@@ -9,7 +9,7 @@ class Customer extends Model
     use SoftDeletes;
     use ValidatingTrait;
 
-    protected $fillable = ['firstname', 'lastname', 'phone', 'group_id', 'email', 'birthdays'];
+    protected $fillable = ['firstname', 'lastname', 'phone', 'group_id', 'email', 'birthday'];
 
     protected $rules = [
         'firstname' => 'required|min:2',
