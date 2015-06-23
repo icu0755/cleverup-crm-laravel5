@@ -15,7 +15,7 @@
             <h1>Edit user: {{$user->name}}</h1>
             @include('message')
             {!! Form::model($user, ['route' => ['users.update', $user->id], 'role' => 'form', 'method' => 'put']) !!}
-            @include('forms.user', ['submitButtonText' => 'Save user'])
+            @include('forms.user', ['submitButtonText' => 'Save user', 'roles' => $roles])
             {!! Form::close() !!}
         </div>
     </div>

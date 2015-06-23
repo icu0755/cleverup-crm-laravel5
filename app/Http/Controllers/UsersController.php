@@ -16,24 +16,34 @@ class UsersController extends Controller
 
     public function create()
     {
-        return view('user.create');
+        $roles = [];
+        foreach (\App\Role::all() as $role) {
+            $roles[$role->id] = $role->name;
+        }
+        return view('user.create')->withRoles($roles);
     }
 
     public function store(UserRequest $request)
     {
-        User::create($request->all());
+        $user = User::create($request->all());
+        $user->roles()->attach(\Input::get('roles'));
 
         return redirect()->route('users.index');
     }
 
     public function edit(User $user)
     {
-        return view('user.edit')->withUser($user);
+        $roles = [];
+        foreach (\App\Role::all() as $role) {
+            $roles[$role->id] = $role->name;
+        }
+        return view('user.edit')->withUser($user)->withRoles($roles);
     }
 
     public function update(UserRequest $request, User $user)
     {
         $user->update($request->all());
+        $user->roles()->sync([\Input::get('roles')]);
 
         return redirect()->route('users.index');
     }
