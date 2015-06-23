@@ -74,8 +74,9 @@ class CustomerGroupController extends Controller
     public function table()
     {
         $operations = [
-            '<li>{!!link_to_route("customer-groups.edit", "edit", ["groupId" => $id], ["class" => "glyphicon glyphicon-pencil"])!!}</li>',
-            '<li>{!!link_to_route("customer-groups.remove", "remove", ["groupId" => $id], ["class" => "glyphicon glyphicon-remove"])!!}</li>',
+            '<li><a href="{{route("customer-groups.edit", ["groupId" => $id])}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</a></li>',
+            '<li><a href="{{route("customer-groups.remove", ["groupId" => $id])}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove</a></li>',
+            '<li><a href=""><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Attendace</a></li>',
         ];
 
         $groups = CustomerGroup::select([

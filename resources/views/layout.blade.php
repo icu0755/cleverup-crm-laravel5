@@ -24,6 +24,7 @@
         <script src="{{asset('scripts/modules/customer_groups_controller.js')}}"></script>
         <script src="{{asset('scripts/modules/event_edit_controller.js')}}"></script>
         <script src="{{asset('scripts/modules/events_controller.js')}}"></script>
+        <script src="{{asset('scripts/modules/lesson_add_controller.js')}}"></script>
         <script src="{{asset('scripts/main.js')}}"></script>
     </body>
 </html>

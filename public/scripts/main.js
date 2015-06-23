@@ -26,6 +26,13 @@ jQuery(function($) {
                 eventsUrl: './api/events'
             });
             break;
+        case 'lesson':
+            $(document).on('lessons:create', function(e, data){
+                $('#lessons').html(data.data);
+            });
+
+            new LessonAddController();
+            break;
         default:
     }
 });

@@ -14,7 +14,7 @@ var CustomerGroupsController = (function($) {
             },
             columns: [
                 {data: 'groupname', title: 'Group'},
-                {data: 'operations', title: '', orderable: false, searchable: false}
+                {data: 'operations', title: '', orderable: false, searchable: false, width: "300px"}
             ]
         });
     };
