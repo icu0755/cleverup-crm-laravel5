@@ -89,8 +89,5 @@ Route::group(['middleware' => 'auth'], function()
     /**
      * LessonController
      */
-    Route::resource('lessons', 'LessonController', ['only' => ['store']]);
-    Route::get('lessons', function() {
-        return view('lesson.index')->withBody('lesson');
-    });
+    Route::any('/lessons', ['as' => 'lessons.index', 'uses' => 'LessonController@index']);
 });
