@@ -10,40 +10,35 @@ use Illuminate\Http\Request;
 
 class LessonController extends Controller
 {
-    public function store()
-    {
-        try {
-            $id = Lesson::create(\Input::all());
-        } catch (QueryException $e) {
-            $content = json_encode([
-                'status' => 'error',
-                'code' => $e->getCode(),
-                'message' => $e->getMessage(),
-            ]);
-
-            return response($content, '500');
-        }
-
-        return json_encode([
-            'status' => 'success',
-            'id' => $id,
-        ]);
-    }
-
     public function index(Request $request)
     {
+        $now = new Carbon();
         if ($request->isMethod('post')) {
-            $now = new Carbon();
             $from = new Carbon($request->input('from', $now->toDateString()));
             $to = new Carbon($request->input('to', $now->toDateString()));
-            $lessons = \App\Lesson::where('given_at', '>=', $from->startOfDay()->toDateTimeString())
+            $lessons = \App\Lesson::orderBy('given_at', 'asc')
+                ->where('given_at', '>=', $from->startOfDay()->toDateTimeString())
                 ->where('given_at', '<=', $to->endOfDay()->toDateTimeString())
                 ->get();
         } else {
-            $lessons = \App\Lesson::get();
+            $lessons = \App\Lesson::orderBy('given_at', 'asc')->get();
         }
+
+        $groups = \App\CustomerGroup::orderBy('groupname', 'desc')->get();
+
         return view('lesson.index')->with([
             'lessons' => $lessons,
+            'groups' => $groups,
+            'now' => $now->toDateString(),
+            'from' => isset($from) ? $from->toDateString() : '',
+            'to' => isset($to) ? $to->toDateString() : '',
         ]);
+    }
+
+    public function store(Request $request)
+    {
+        $lesson = Lesson::create($request->all());
+
+        return redirect()->route('lessons.index');
     }
 }

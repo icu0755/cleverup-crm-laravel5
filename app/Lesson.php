@@ -7,5 +7,10 @@ class Lesson extends Model
 {
     protected $table = 'lesson';
 
-    protected $fillable = ['group_id', 'given_at'];
+    protected $fillable = ['group_id', 'given_at', 'group_id'];
+
+    public function group()
+    {
+        return $this->belongsTo('\App\CustomerGroup');
+    }
 }
