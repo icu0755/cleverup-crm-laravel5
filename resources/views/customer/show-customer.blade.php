@@ -10,7 +10,7 @@
 @stop
 
 @section('content')
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<div class="col-sm-6 col-sm-offset-3 col-md-7 col-md-offset-2 main">
     @include('message')
     <h1 class="page-header">Customer information</h1>
     <div>Name: {!!$customer->firstname . " " . $customer->lastname!!}</div>
@@ -18,6 +18,11 @@
     <h2 class="sub-header">Send SMS</h2>
     {!! Form::open(['route' => ['sms.customer', $customer->id], 'role' => 'form']) !!}
         @include('forms.sms')
+    {!! Form::close() !!}
+    <h2 class="sub-header">Payments</h2>
+    <h3>Instant payment</h3>
+    {!! Form::open(['route' => ['payments.save', $customer->id], 'role' => 'form']) !!}
+    @include('forms.payment-instant')
     {!! Form::close() !!}
     <h2 class="sub-header">Comments</h2>
     @if($customer->comments())

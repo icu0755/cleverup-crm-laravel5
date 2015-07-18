@@ -91,4 +91,9 @@ Route::group(['middleware' => 'auth'], function()
      */
     Route::any('/lessons', ['as' => 'lessons.index', 'uses' => 'LessonController@index']);
     Route::post('/lessons/store', ['as' => 'lessons.store', 'uses' => 'LessonController@store']);
+
+    /**
+     * PaymentsController
+     */
+    Route::resource('customers.payments', 'PaymentsController');
 });

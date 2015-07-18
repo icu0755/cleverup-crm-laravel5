@@ -68,4 +68,14 @@ class Customer extends Model
     {
         return $this->firstname . ' ' . $this->lastname;
     }
+
+    public function payments()
+    {
+        return $this->hasMany('App\CustomerPayment', '');
+    }
+
+    public function lastPayments($limit = 5)
+    {
+        return $this->payments()->orderBy('paid_at', 'desc')->limit($limit)->get();
+    }
 }
