@@ -20,8 +20,16 @@
         @include('forms.sms')
     {!! Form::close() !!}
     <h2 class="sub-header">Payments</h2>
+    <table class="table table-striped">
+    @foreach($customer->lastPayments() as $payment)
+        <tr>
+            <td>{{ $payment->paid_at }}</td>
+            <td>{{ $payment->prettyAmount() }}</td>
+        </tr>
+    @endforeach
+    </table>
     <h3>Instant payment</h3>
-    {!! Form::open(['route' => ['payments.save', $customer->id], 'role' => 'form']) !!}
+    {!! Form::open(['route' => ['customers.payments.store', $customer->id], 'role' => 'form']) !!}
     @include('forms.payment-instant')
     {!! Form::close() !!}
     <h2 class="sub-header">Comments</h2>

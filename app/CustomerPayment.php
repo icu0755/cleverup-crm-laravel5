@@ -21,4 +21,9 @@ class CustomerPayment extends Model
     {
         return $this->hasOne('App\Customer');
     }
+
+    public function prettyAmount()
+    {
+        return number_format($this->amount / 100, 2, '.', ' ');
+    }
 }

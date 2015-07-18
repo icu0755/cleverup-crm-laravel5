@@ -37,9 +37,11 @@ class PaymentsController extends Controller {
 		$customer = \App\Customer::find($customerId);
         $amount = \Input::get('amount');
         $payment = new \App\CustomerPayment();
-        $payment->customer = $customer;
-        $payment->amount = (integer) str_replace(['.', ','], ['', ''], $amount);
-        $payment->save();
+		$amount = (integer) str_replace(['.', ','], ['', ''], $amount);
+		$amount *= 100;
+        $payment->amount = $amount;
+        $customer->payments()->save($payment);
+		return redirect()->route('customers.show', [$customerId]);
 	}
 
 	/**
