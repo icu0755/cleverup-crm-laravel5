@@ -7,6 +7,7 @@ class CustomerRepository
 {
     public function getCustomersWithUpcomingBirthday($limit = 6)
     {
+        return [];
         $customers = Customer::hasBirthday()
             ->get()
             ->filter([$this, 'filterByUpcomingBirthdayWithinMonth'])

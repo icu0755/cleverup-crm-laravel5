@@ -15,7 +15,7 @@ class CustomerController extends Controller
     public function editCustomer($customerId)
     {
         $customer = Customer::findOrFail($customerId);
-        $groups = CustomerGroup::lists('groupname', 'id');
+        $groups = ['' => ''] + CustomerGroup::lists('groupname', 'id');
 
         return view('customer.edit')
             ->with('customer', $customer)
@@ -55,7 +55,7 @@ class CustomerController extends Controller
 
     public function showCustomerForm()
     {
-        $groups = CustomerGroup::lists('groupname', 'id');
+        $groups = ['' => ''] + CustomerGroup::lists('groupname', 'id');
 
         return view('customer/create')
             ->with('groups', $groups)
