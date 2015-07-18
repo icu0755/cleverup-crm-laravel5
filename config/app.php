@@ -147,6 +147,7 @@ return [
 		'App\Providers\RouteServiceProvider',
 		'App\Providers\ComposerServiceProvider',
         'yajra\Datatables\DatatablesServiceProvider',
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 
 	],
 
