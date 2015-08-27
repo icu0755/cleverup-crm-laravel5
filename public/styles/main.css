@@ -1,1 +1,43 @@
-.browsehappy{margin:.2em 0;background:#ccc;color:#000;padding:.2em 0}.sub-header{padding-bottom:10px;border-bottom:1px solid #eee}.sidebar{position:fixed;top:51px;bottom:0;left:0;padding:20px}.main .page-header{margin-top:0}table.dataTable .operations{list-style:none}table.dataTable .operations li{float:left}table.dataTable .operations li a{color:#555;padding:10px 5px}
+.sub-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+}
+
+.main .page-header {
+    margin-top: 0;
+}
+
+.wrapper {
+    padding: 0 40px 0 40px;
+}
+
+.form-wrapper {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 600px;
+}
+
+ /*DataTable*/
+
+table.dataTable .operations {
+    list-style: none;
+}
+
+table.dataTable .operations li {
+    float: left;
+}
+
+table.dataTable .operations li a {
+    color: #555;
+    padding: 10px 5px;
+}

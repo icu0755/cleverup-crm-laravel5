@@ -1,19 +1,18 @@
 @extends('layout')
 
 @section('sidebar')
-    <div class="col-md-2">
-        <ul class="nav nav-sidebar">
-            <li>{!! link_to_route('users.index', 'Users') !!}</li>
-        </ul>
-    </div>
+    <ul class="nav nav-sidebar">
+        <li>{!! link_to_route('users.index', 'Users') !!}</li>
+    </ul>
 @stop
 
 @section('content')
-    <div class="col-md-4 main">
-        <h1>Add user</h1>
+    <div class="wrapper">
         @include('message')
-        {!! Form::open(['route' => 'users.store', 'role' => 'form']) !!}
-        @include('forms.user', ['submitButtonText' => 'Create user', 'roles' => $roles])
-        {!! Form::close() !!}
+        <div class="form-wrapper">
+            {!! Form::open(['route' => 'users.store', 'role' => 'form']) !!}
+            @include('forms.user', ['submitButtonText' => 'Create user', 'roles' => $roles])
+            {!! Form::close() !!}
+        </div>
     </div>
 @stop
