@@ -96,4 +96,10 @@ Route::group(['middleware' => 'auth'], function()
      * PaymentsController
      */
     Route::resource('customers.payments', 'PaymentsController');
+
+    /**
+     * AttendanceController
+     */
+    Route::get('/customer-groups/{groupId}/attendance/index',
+        ['as' => 'attendance.index', 'uses' => 'AttendanceController@index']);
 });
