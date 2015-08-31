@@ -4,13 +4,14 @@ class UsersControllerTest extends TestCase
 {
     public function testNonAuthorizedUser()
     {
-        $response = $this->call('GET', '/users/create');
-        $this->assertRedirectedTo('/');
+        $this->flushSession();
+        $response = $this->call('GET', route('users.store'));
+        $this->assertRedirectedTo('/auth/login');
 
-        $response = $this->call('GET', '/users/edit/1');
-        $this->assertRedirectedTo('/');
+        $response = $this->call('GET', route('users.update', [1]));
+        $this->assertRedirectedTo('/auth/login');
 
-        $response = $this->call('GET', '/users/');
-        $this->assertRedirectedTo('/');
+        $response = $this->call('GET', route('users.index'));
+        $this->assertRedirectedTo('/auth/login');
     }
 }
