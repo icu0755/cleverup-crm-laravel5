@@ -11,9 +11,10 @@ class AttendanceControllerTest extends TestCase
     {
         parent::setUp();
 
-        $this->user = \App\User::firstOrCreate([
+        $this->user = \App\User::create([
             'name' => 'vi@mailtrap.io',
             'email' => 'vi@mailtrap.io',
+            'password' => 'test',
         ]);
 
         $this->group = \App\CustomerGroup::create(['groupname' => 'Group 1']);

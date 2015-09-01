@@ -14,8 +14,8 @@ class AddBirthdayToCustomer extends Migration {
 	{
 		Schema::table('customer', function(Blueprint $table)
 		{
-            $table->string('email')->after('phone');
-            $table->date('birthday')->after('email');
+            $table->string('email')->nullable()->after('phone');
+            $table->date('birthday')->nullable()->after('email');
 		});
 	}
 

@@ -15,7 +15,7 @@ class AddGroupIdToCustomerTable extends Migration {
 		Schema::table('customer', function($table)
         {
             /** @var $table Blueprint */
-            $table->integer('group_id')->after('id');
+            $table->integer('group_id')->nullable()->after('id');
         });
 	}
 

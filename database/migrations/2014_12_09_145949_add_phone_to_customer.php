@@ -15,7 +15,7 @@ class AddPhoneToCustomer extends Migration {
         Schema::table('customer', function($table)
         {
             /** @var $table Blueprint */
-            $table->string('phone', 11)->after('lastname');
+            $table->string('phone', 11)->default('')->after('lastname');
         });
     }
 
