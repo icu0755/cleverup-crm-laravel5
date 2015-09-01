@@ -85,9 +85,23 @@ class AttendanceControllerTest extends TestCase
 
     public function testIndex()
     {
+        $response = $this->call('GET', route('attendance.index', [$this->group->id]));
+        $this->assertRedirectedTo('/auth/login');
+
         $this->be($this->user);
         $response = $this->call('GET', route('attendance.index', [$this->group->id]));
         $this->assertEquals(count($this->attendance), count($response->original['attendance']));
+    }
+
+    public function testCreate()
+    {
+        $response = $this->call('GET', route('attendance.create', [$this->group->id]));
+        $this->assertRedirectedTo('/auth/login');
+
+        $this->be($this->user);
+        $response = $this->call('GET', route('attendance.create', [$this->group->id]));
+        $view = $response->original;
+        $this->assertEquals(count($this->customers), count($view['customers']));
     }
 
 }

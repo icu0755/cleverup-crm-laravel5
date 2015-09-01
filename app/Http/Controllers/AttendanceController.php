@@ -14,4 +14,10 @@ class AttendanceController extends Controller
         return view('attendance.index')->withAttendance($list);
     }
 
+    public function create($groupId)
+    {
+        $customers = \App\Customer::where('group_id', $groupId)->get();
+        return view('attendance.create')->withCustomers($customers);
+    }
+
 }

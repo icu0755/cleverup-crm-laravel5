@@ -102,4 +102,6 @@ Route::group(['middleware' => 'auth'], function()
      */
     Route::get('/customer-groups/{groupId}/attendance/index',
         ['as' => 'attendance.index', 'uses' => 'AttendanceController@index']);
+    Route::get('/customer-groups/{groupId}/attendance/create',
+        ['as' => 'attendance.create', 'uses' => 'AttendanceController@create']);
 });

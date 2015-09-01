@@ -6,7 +6,7 @@
 @stop
 
 @section('content')
-    <h1 class="page-header">Users</h1>
+    <h1 class="page-header">Attendance</h1>
     <table class="table">
         <thead>
             <tr>
