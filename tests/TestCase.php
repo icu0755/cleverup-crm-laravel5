@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\View\Compilers\BladeCompiler;
+
 class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
 	/**
@@ -13,7 +15,17 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
 		$app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
 
-		return $app;
+        $storagePath = '/tmp/storage';
+        if (!file_exists($storagePath)) {
+            mkdir($storagePath);
+        }
+
+        $app->singleton('blade.compiler', function($app) use ($storagePath)
+        {
+            return new BladeCompiler($app['files'], $storagePath);
+        });
+
+        return $app;
 	}
 
     public function setUp()
