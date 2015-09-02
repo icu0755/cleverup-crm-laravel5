@@ -3,7 +3,11 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Carbon\Carbon;
+use DB;
+use Exception;
 use Illuminate\Http\Request;
+use Input;
 
 class AttendanceController extends Controller
 {
@@ -16,8 +20,39 @@ class AttendanceController extends Controller
 
     public function create($groupId)
     {
+        $dt = Carbon::now();
         $customers = \App\Customer::where('group_id', $groupId)->get();
-        return view('attendance.create')->withCustomers($customers);
+        return view('attendance.create')
+            ->withCustomers($customers)
+            ->with('groupId', $groupId)
+            ->with('date', $dt->format('Y-m-d'))
+            ->with('time', $dt->format('H:m'));
+    }
+
+    public function store($groupId)
+    {
+        $date = Input::get('date');
+        $time = Input::get('time');
+
+        try {
+            DB::transaction(function() use ($groupId, $date, $time)
+            {
+                foreach (Input::get('customers') as $customerId) {
+                    $att = new \App\Attendance([
+                        'group_id' => $groupId,
+                        'customer_id' => $customerId,
+                        'was_at' => sprintf('%s %s', $date, $time),
+                    ]);
+                    $att->save();
+                }
+            });
+        } catch (Exception $e) {
+            redirect(route('attendance.index'))
+                ->with('error', $e->getMessage());
+        }
+
+        return redirect(route('attendance.index'))
+            ->with('status', 'Attendance saved');
     }
 
 }

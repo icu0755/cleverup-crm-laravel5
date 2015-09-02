@@ -104,4 +104,33 @@ class AttendanceControllerTest extends TestCase
         $this->assertEquals(count($this->customers), count($view['customers']));
     }
 
+    public function testStore()
+    {
+        Session::start();
+
+        $date = '2015-01-01';
+        $time = '20:00';
+        $payload = [
+            'date' => $date,
+            'time' => $time,
+            'customers' => [
+                $this->customers[0]->id,
+                $this->customers[1]->id,
+            ],
+            '_token' => csrf_token(),
+        ];
+        $response = $this->call('POST', route('attendance.store', [$this->group->id]), $payload);
+        $this->assertRedirectedTo('/auth/login');
+
+        $this->be($this->user);
+        $response = $this->call('POST', route('attendance.store', [$this->group->id]), $payload);
+        $this->assertRedirectedTo(route('attendance.index'));
+
+        $this->assertSessionHas('status');
+
+        $attendance = \App\Attendance::where('group_id', $this->group->id)
+            ->where('was_at', sprintf('%s %s', $date, $time))->get();
+        $this->assertEquals(2, count($attendance));
+    }
+
 }

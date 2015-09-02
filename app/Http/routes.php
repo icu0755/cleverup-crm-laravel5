@@ -104,4 +104,6 @@ Route::group(['middleware' => 'auth'], function()
         ['as' => 'attendance.index', 'uses' => 'AttendanceController@index']);
     Route::get('/customer-groups/{groupId}/attendance/create',
         ['as' => 'attendance.create', 'uses' => 'AttendanceController@create']);
+    Route::post('/customer-groups/{groupId}/attendance/store',
+        ['as' => 'attendance.store', 'uses' => 'AttendanceController@store']);
 });
