@@ -124,7 +124,7 @@ class AttendanceControllerTest extends TestCase
 
         $this->be($this->user);
         $response = $this->call('POST', route('attendance.store', [$this->group->id]), $payload);
-        $this->assertRedirectedTo(route('attendance.index'));
+        $this->assertRedirectedTo(route('attendance.index', [$this->group->id]));
 
         $this->assertSessionHas('status');
 

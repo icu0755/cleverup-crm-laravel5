@@ -47,11 +47,11 @@ class AttendanceController extends Controller
                 }
             });
         } catch (Exception $e) {
-            redirect(route('attendance.index'))
+            redirect(route('attendance.index', $groupId))
                 ->with('error', $e->getMessage());
         }
 
-        return redirect(route('attendance.index'))
+        return redirect(route('attendance.index', $groupId))
             ->with('status', 'Attendance saved');
     }
 
