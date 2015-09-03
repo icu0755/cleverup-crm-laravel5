@@ -2,7 +2,9 @@
 
 use Illuminate\View\Compilers\BladeCompiler;
 
-class TestCase extends Illuminate\Foundation\Testing\TestCase {
+class TestCase extends Illuminate\Foundation\Testing\TestCase
+{
+    protected $baseUrl = 'http://localhost';
 
 	/**
 	 * Creates the application.
